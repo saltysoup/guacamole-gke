@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: guacamole-ingress
+  namespace: netboot-guacamole
+spec:
+  tls:
+  - secretName: supersecret
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: guacamole
+          servicePort: 8080
+        path: /*
+        backend:
+          serviceName: guacamole
+          servicePort: 8080

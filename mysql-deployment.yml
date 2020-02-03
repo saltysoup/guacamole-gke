@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: guacamole-db-stateful
+  namespace: netboot-guacamole
+  labels:
+    app: guacamole
+    tier: backend
+spec:
+  serviceName: guacamole-db
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: guacamole
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: guacamole
+        tier: backend
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: guacamole-db
+        args:
+          - "--ignore-db-dir=lost+found"
+        env:
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: guacamole
+              key: user_login
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: guacamole
+              key: user_password
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: guacamole
+              key: database
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: guacamole
+              key: root_password
+        ports:
+        - name: guacamole-db
+          containerPort: 3306
+        volumeMounts:
+        - name: data
+          mountPath: "/var/lib/mysql"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: data
