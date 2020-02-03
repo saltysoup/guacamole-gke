@@ -27,7 +27,7 @@ spec:
         - name: MYSQL_PORT
           value: "3306"
         - name: MYSQL_HOSTNAME
-          value: "10.18.192.2"
+          value: "guacamole-db"
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:

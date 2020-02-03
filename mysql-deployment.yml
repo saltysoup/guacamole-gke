@@ -23,7 +23,7 @@ spec:
       - image: mysql:5.7
         name: guacamole-db
         args:
-          - "--ignore-db-dir=lost+found"
+        - "--ignore-db-dir=lost+found"
         env:
         - name: MYSQL_USER
           valueFrom:
