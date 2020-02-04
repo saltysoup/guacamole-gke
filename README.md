@@ -28,3 +28,4 @@ This is to deploy Guacamole stack (guacamole, guacd and relational DB) on Google
 1. Enable 2FA extension on Guacamole
 1. Automatic VM discovery using Stack Driver, Cloud Functions and mysql DB
 1. Enable Session Recording and [mount GCS bucket as volume](https://cloud.google.com/storage/docs/gcs-fuse) in guacamole pod (should be ok because files are pushed one way into bucket, with no IO streaming pipe open)
+1. Inject secrets value to secret.yaml using [Google Secrets Manager](https://cloud.google.com/secret-manager/docs/) or Vault, CI Server etc
