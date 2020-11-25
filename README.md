@@ -2,12 +2,12 @@
 This is to deploy Guacamole stack (guacamole, guacd and relational DB) on Google Cloud using Kubernetes.
 
 ## TEST
-
 <div>
-  Check out this source code:
-  <br>
-  <script src="https://gist.github.com/DGrv/771dd2b1f9c05d8fcf17f3ff84bfc1f3.js"></script>
+<script src="https://gist.github.com/DGrv/771dd2b1f9c05d8fcf17f3ff84bfc1f3.js"></script>
 </div>
+
+## TEST2
+https://github.com/saltysoup/guacamole-gke/blame/master/001-create-schema.sql#L1
 
 ## Instructions
 
